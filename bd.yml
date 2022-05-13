@@ -36,7 +36,7 @@
       bd: "{{ bdname }}"
       gateway: "{{ myip }}"
       mask: "{{ mymask }}"
-      scope: "private"
+      scope: "{{ myscope }}"
       description: "Put something descriptive here"
       validate_certs: no
       state: present
