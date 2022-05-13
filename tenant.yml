@@ -3,7 +3,7 @@
 # Playbook configures a Tenant. No pre/post checks required. 
 #
 - name: Configuring Example Tenant
-  hosts: apic
+  hosts: all
   connection: local
   gather_facts: no
 
