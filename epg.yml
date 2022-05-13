@@ -9,7 +9,7 @@
 #
 ---
 - name: Create a new Application Profile and EPG
-  hosts: apic1
+  hosts: all
   connection: local
   gather_facts: no
 

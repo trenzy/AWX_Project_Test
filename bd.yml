@@ -4,7 +4,7 @@
 #
 ---
 - name: Configure a new Bridge Domain
-  hosts: apic
+  hosts: all
   connection: local
   gather_facts: no
   

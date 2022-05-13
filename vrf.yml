@@ -5,7 +5,7 @@
 # This playbook does not include any pre/post checks.
 #
 - name: Configuring a new Three Tier Application
-  hosts: apic1
+  hosts: all
   connection: local
   gather_facts: no
   
