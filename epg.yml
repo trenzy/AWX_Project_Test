@@ -1,0 +1,40 @@
+#
+# Playbook creates an End Point Group (EPG). It includes a task to create an
+# Application profile, since this is required to create epgs. This playbook
+# assumes that the Tenant has been created. If you are going to associate
+# this EPG to a Bridge Domain, then it assumes that it has been created. 
+# Otherwise, that line will need to be commented out.
+#
+# This playbook does not include any pre/post checks.
+#
+---
+- name: Create a new Application Profile and EPG
+  hosts: apic1
+  connection: local
+  gather_facts: no
+
+  tasks:
+  # We may need to create the Application Profile
+  - name: Create Application Profile
+    cisco.aci.aci_ap:
+      hostname: "{{ inventory_hostname }}"
+      username: "{{ username }}"
+      password: "{{ password }}"
+      tenant: "{{ mytenant }}"
+      ap: "{{ myap }}"
+      description: "Put something descriptive here"
+      validate_certs: no
+      state: present
+
+  - name: Creating EPGs
+    cisco.aci.aci_epg:
+      hostname: "{{ inventory_hostname }}"
+      username: "{{ username }}"
+      password: "{{ password }}"
+      tenant: "{{ mytenant }}"
+      ap: "{{ myap }}"
+      epg: "{{ myepg }}"
+      bd: "{{ bdname }}"
+      description: "Put something descriptive here"
+      validate_certs: no
+      state: present

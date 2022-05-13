@@ -1,0 +1,22 @@
+---
+#
+# Playbook configures a VRF under a particular Tenant. 
+# This playbook assumes that the Tenant has been created
+# This playbook does not include any pre/post checks.
+#
+- name: Configuring a new Three Tier Application
+  hosts: apic1
+  connection: local
+  gather_facts: no
+  
+  tasks:
+  - name: Create VRF
+    cisco.aci.aci_vrf:
+      hostname: "{{ inventory_hostname }}"
+      username: "{{ username }}"
+      password: "{{ password }}"
+      tenant: "{{ mytenant }}"
+      vrf: "{{ myvrf }}"
+      description: "Put something descriptive here"
+      validate_certs: no
+      state: present

@@ -1,0 +1,42 @@
+#
+# Playbook configures a Bridge Domain. This playbook assumes that the Tenant and VRF have
+# been created. This playbook does not include any pre/post checks.
+#
+---
+- name: Configure a new Bridge Domain
+  hosts: apic
+  connection: local
+  gather_facts: no
+  
+  tasks:
+  # Create the actual bridge domain. Needs to be modified based
+  # on BD requirements.
+  - name: Creating Bridge Domain
+    cisco.aci.aci_bd:
+      hostname: "{{ inventory_hostname }}"
+      username: "{{ username }}"
+      password: "{{ password }}"
+      tenant: "{{ mytenant }}"
+      vrf: "{{ myvrf }}"
+      bd: "{{ bdname }}"
+      # Could make these variables too
+      enable_routing: yes
+      arp_flooding: no
+      l2_unknown_unicast: proxy
+      description: "Put something descriptive here"
+      validate_certs: no
+      state: present
+
+  - name: Creating BD Subnet
+    aci_bd_subnet:
+      hostname: "{{ inventory_hostname }}"
+      username: "{{ username }}"
+      password: "{{ password }}"
+      tenant: "{{ mytenant }}"
+      bd: "{{ bdname }}"
+      gateway: "{{ myip }}"
+      mask: "{{ mymask }}"
+      scope: "private"
+      description: "Put something descriptive here"
+      validate_certs: no
+      state: present

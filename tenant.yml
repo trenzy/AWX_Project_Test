@@ -1,0 +1,20 @@
+---
+#
+# Playbook configures a Tenant. No pre/post checks required. 
+#
+- name: Configuring Example Tenant
+  hosts: apic
+  connection: local
+  gather_facts: no
+
+  tasks:
+  - name: Create a New Tenant
+    cisco.aci.aci_tenant:
+        hostname: "{{ inventory_hostname }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+        tenant: "{{ mytenant }}"
+        description: "Put something descriptive here."
+        validate_certs: no
+        state: present
+
