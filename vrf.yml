@@ -15,8 +15,8 @@
       hostname: "{{ inventory_hostname }}"
       username: "{{ username }}"
       password: "{{ password }}"
-      tenant: "{{ mytenant }}"
-      vrf: "{{ myvrf }}"
-      description: "Put something descriptive here"
+      tenant: "{{ tenant }}"
+      vrf: "{{ vrf }}"
+      description: "{{ desc }}"
       validate_certs: no
       state: present

@@ -20,9 +20,9 @@
       hostname: "{{ inventory_hostname }}"
       username: "{{ username }}"
       password: "{{ password }}"
-      tenant: "{{ mytenant }}"
-      ap: "{{ myap }}"
-      description: "Put something descriptive here"
+      tenant: "{{ tenant }}"
+      ap: "{{ app_profile }}"
+      description: "{{ desc }}"
       validate_certs: no
       state: present
 
@@ -31,10 +31,10 @@
       hostname: "{{ inventory_hostname }}"
       username: "{{ username }}"
       password: "{{ password }}"
-      tenant: "{{ mytenant }}"
-      ap: "{{ myap }}"
+      tenant: "{{ tenant }}"
+      ap: "{{ app_profile }}"
       epg: "{{ myepg }}"
       bd: "{{ bdname }}"
-      description: "Put something descriptive here"
+      description: "{{ desc }}"
       validate_certs: no
       state: present

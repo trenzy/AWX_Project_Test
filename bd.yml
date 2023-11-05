@@ -16,14 +16,14 @@
       hostname: "{{ inventory_hostname }}"
       username: "{{ username }}"
       password: "{{ password }}"
-      tenant: "{{ mytenant }}"
-      vrf: "{{ myvrf }}"
-      bd: "{{ bdname }}"
+      tenant: "{{ tenant }}"
+      vrf: "{{ vrf }}"
+      bd: "{{ bd.name }}"
       # Could make these variables too
       enable_routing: yes
       arp_flooding: no
       l2_unknown_unicast: proxy
-      description: "Put something descriptive here"
+      description: "{{ desc }}"
       validate_certs: no
       state: present
 
@@ -32,11 +32,11 @@
       hostname: "{{ inventory_hostname }}"
       username: "{{ username }}"
       password: "{{ password }}"
-      tenant: "{{ mytenant }}"
-      bd: "{{ bdname }}"
-      gateway: "{{ myip }}"
-      mask: "{{ mymask }}"
-      scope: "{{ myscope }}"
-      description: "Put something descriptive here"
+      tenant: "{{ tenant }}"
+      bd: "{{ bd.name }}"
+      gateway: "{{ bd.ip }}"
+      mask: "{{ bd.mask }}"
+      scope: "{{ bd.scope }}"
+      description: "{{ desc }}"
       validate_certs: no
       state: present

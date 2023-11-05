@@ -13,8 +13,8 @@
         hostname: "{{ inventory_hostname }}"
         username: "{{ username }}"
         password: "{{ password }}"
-        tenant: "{{ mytenant }}"
-        description: "Put something descriptive here."
+        tenant: "{{ tenant }}"
+        description: "{{ desc }}"
         validate_certs: no
         state: present
 

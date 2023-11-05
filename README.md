@@ -16,7 +16,7 @@ The following collections were documented in the requirements file:
         community.general
         ansible.utils
 
-Variables will need to be created in AWX to match what is in each of the playbooks.
+group_vars/all.yml provides info on variables
 
 ### <h3>Additionally, we may look at the following:</h3>
         - Use read_csv module to read info from csv file

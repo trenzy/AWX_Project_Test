@@ -1,6 +1,0 @@
----
-collections:
-- cisco.aci
-- ansible.netcommon
-- community.general
-- ansible.utils
