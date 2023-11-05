@@ -1,7 +1,7 @@
 ---
 # The variables for the three tier playbook
-  desc: "Created with AWX"
-  tenant: AWX
+  desc: "Created with AWX webhook"
+  tenant: AWX1
   vrf: awx-vrf
   bd:
     name: web-bd
